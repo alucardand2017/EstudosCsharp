@@ -1,0 +1,5 @@
+A:\ANDERSON\EstudosCsharp\EstudosCsharp\obj\Debug\net5.0\EstudosCsharp.csproj.AssemblyReference.cache
+A:\ANDERSON\EstudosCsharp\EstudosCsharp\obj\Debug\net5.0\EstudosCsharp.GeneratedMSBuildEditorConfig.editorconfig
+A:\ANDERSON\EstudosCsharp\EstudosCsharp\obj\Debug\net5.0\EstudosCsharp.AssemblyInfoInputs.cache
+A:\ANDERSON\EstudosCsharp\EstudosCsharp\obj\Debug\net5.0\EstudosCsharp.AssemblyInfo.cs
+A:\ANDERSON\EstudosCsharp\EstudosCsharp\obj\Debug\net5.0\EstudosCsharp.csproj.CoreCompileInputs.cache
