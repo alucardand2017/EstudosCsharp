@@ -30,6 +30,9 @@ ___
 17. [Interface](#17)
 18. [Try e Catch](#18)
 19. [Erros de Exceção Geral](#19)
+20. [throw](#20)
+21. [ParaName e nameof()](#21)
+22. [Propriedade Somente Leitura](#22)
 
 
 <div  id ='1'/>
@@ -37,11 +40,10 @@ ___
  * **Classe**  - Utilizamos normalmente para desenvolver um ou mais métodos e atribuições que visam dividir o código de foma a deixa-lo otimizado para sua utilização, respeitando os conceitos e convenções de forma a deixar-lo intelegível.
 ~~~JavaScript
 class Program 
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
+{
+    static void Main(string[] args)
+    {....}
+}
 ~~~
 
 <div  id ='2'/>
@@ -75,16 +77,16 @@ class Program
 ~~~JavaScript
 //repare nessa linha onde temos a relação filha : base
 public class Diretor : Funcionario  
-    {
-       Console.WriteLine("A varíavel {0} tem valor", x);
-    }
+{
+   Console.WriteLine("A varíavel {0} tem valor", x);
+}
 ~~~
 
 ```JavaScript
 public class Funcionario // classe base
-    {
-        protected int x = 10;
-    }
+{
+    protected int x = 10;
+}
 ```
 
 <div  id ='8'/>
@@ -99,14 +101,14 @@ no nomento do seu instanciamento.
 ~~~JavaScript
 //arquivo Funcionario.cs
 public class Funcionario // classe base
+{
+    // construtor deve ter o mesmo nome
+    public Funcionario (double salario, string cpf)  
     {
-        // construtor deve ter o mesmo nome
-        public Funcionario (double salario, string cpf)  
-        {
-            Salario = salario;
-            CPF = cpf;
-        }
+        Salario = salario;
+        CPF = cpf;
     }
+}
 ~~~
 
 ~~~JavaScript
@@ -154,6 +156,7 @@ public class GerenteDeConta : Funcionario
     {
         return (Salario*0.25); .
     }
+}
 ~~~
 
 <div  id ='12'/>
@@ -188,21 +191,22 @@ Sendo os campo CPF e Salário Getters e Setters, podemos ter:
 
 ~~~JavaScript
 public class Diretor : Funcionario 
+{
+    public Diretor( double salario, string cpf) : base(salario , cpf) 
     {
-        public Diretor( double salario, string cpf) : base(salario , cpf) 
-        {
-            Console.WriteLine("CRIANDO DIRETOR");
-        }
+        Console.WriteLine("CRIANDO DIRETOR");
+    }
+}
 ~~~
 
 
 ```JavaScript
 public Funcionario(double salario , string cpf)
-        {
-            CPF = cpf;
-            TotalDeFuncionarios++;
-            Salario = salario;
-        }
+{
+    CPF = cpf;
+    TotalDeFuncionarios++;
+    Salario = salario;
+}
 ```
 Repare que a `Class Diretor` é filha da `Class Funcionário` e isso deve ser evidenciado para o C# com os `: Nome_Classe_base`.
 Pomdemos ainda ter uma situação em que devemos usar palavras reservadas para acessar de forma correta esses construtores:
@@ -236,24 +240,24 @@ uma forma para bolos.
 public abstract class Funcionario 
 {
     public Funcionario(double salario , string cpf)
-        {
-            public abstract double GetBonificacao();
-        }
+    {
+        public abstract double GetBonificacao();
+    }
 }
 ~~~
 
 ```JavaScript
 public class Diretor : Funcionario
-    {
+{
     public Diretor( double salario, string cpf) : base(salario , cpf) 
-        {
-            Console.WriteLine("CRIANDO DIRETOR");
-        }
-    public override double GetBonificacao() 
-        {
-            return Salario*0.5; 
-        }
+    {
+        Console.WriteLine("CRIANDO DIRETOR");
     }
+    public override double GetBonificacao() 
+    {
+        return Salario*0.5; 
+    }
+}
 ```
 
 <div  id ='16'/>
@@ -284,18 +288,18 @@ public abstract class Autenticavel : Funcionario
 A classe base tem a seguinte cara:
 ~~~JavaScript
 public abstract class Funcionario 
-    {
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public double Salario { get; protected set; }
-        public static  int TotalDeFuncionarios {get; private set;}  //1    
-        
-        public Funcionario(double salario , string cpf)
-        {
-            CPF = cpf;
-            TotalDeFuncionarios++;
-            Salario = salario;
-        }
+{
+   public string Nome { get; set; }
+   public string CPF { get; set; }
+   public double Salario { get; protected set; }
+   public static  int TotalDeFuncionarios {get; private set;}  //1    
+   public Funcionario(double salario , string cpf)
+   {
+       CPF = cpf;
+       TotalDeFuncionarios++;
+       Salario = salario;
+   }
+}
 ~~~
 
 Abaixo vemos a classe `Auxiliar` herdar apenas de `Funcionario`, enquanto as demais herdam de `Autenticavel` que por sua vez herda
@@ -323,21 +327,20 @@ por esta classe, já que ela não pode faze-lo. A convenção diz que ela deve ser e
 ```JavaScript
 //arquivo IAutenticavel.cs
 public interface IAutenticavel
-    { 
-        bool Autenticar(string senha);              
-    }
+{ 
+    bool Autenticar(string senha);              
 }
 ```
 ```JavaScript
 //arquivo Diretor.cs
 public class Diretor : Funcionario, IAutenticavel 
-    {
-        ...
-        public string Senha { get; set; }
-        public bool Autenticar(string senha)
-        {
-            return Senha == senha;
-        }
+{
+   ...
+   public string Senha { get; set; }
+   public bool Autenticar(string senha)
+   {
+       return Senha == senha;
+   }
 }
 ```
 ```JavaScript
@@ -355,9 +358,10 @@ public class GerenteDeConta : Funcionario, IAutenticavel
  
 <div  id ='18'/>
 
-* **Try e Catch** - Utilizado para tratamento de erros de diversas origens. Ele testa o código/método
+* **try e catch** - Utilizado para tratamento de erros de diversas origens. Ele testa o código/método
 dentro do seu escopo e retorna uma mensagem de erro caso seja detectada a falha, sendo que está foi espeficicada
-dentro do codigo (não trata falhas não especificadas).
+dentro do codigo (não trata falhas não especificadas). Vale dizer que num mesmo bloco podemos ter mais de um bloco
+`catch` para tratamento de erros.
 
 ```JavaScript 
 try
@@ -384,20 +388,92 @@ try
 {
     Metodo();
 }
-//trata a divisão por zero no método Metodo()
-catch (DivideByZeroException excecao)
-            {
-                Console.WriteLine(excecao.Message);
-                Console.WriteLine(excecao.StackTrace);
-                Console.WriteLine("Erro de referencia vazia!");
-
-            }
+//trata a divisão por zero dentro de Exception
+catch (DivideByZeroException e)
+{
+    Console.WriteLine(e.Message);
+    Console.WriteLine(e.StackTrace);
+    Console.WriteLine("Erro de referencia vazia!");
+}
 //trata as demais exceçoes 
-            catch (Exception excecao)
-            {
-                Console.WriteLine(excecao.Message);
-                Console.WriteLine(excecao.StackTrace);
-                Console.WriteLine("Aconteceu um outro erro!");
-            }
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+    Console.WriteLine(e.StackTrace);
+    Console.WriteLine("Aconteceu um outro erro!");
+}
 ```
-* Continua ...
+por convenção, chamamos as variaveis que tratam erro de `e`.
+
+<div  id ='20'/>
+
+* **throw** - passa a frente uma exceção sem encerrar o código, saindo dele e passando para
+o próximo método abaixo no CallStack (pilha de chamada).
+
+```js
+try
+{         
+    return numero / divisor;
+}    
+catch (DivideByZeroException)
+{
+    Console.WriteLine("Divisor com " + divisor como parametro);
+    throw;
+}
+catch (Exception)
+{
+    Console.WriteLine("Erro de outro tipo");
+    throw;
+}
+```
+<div  id ='21'/>
+
+* **ParaName e nameof(variavel)** - A classe `ArgumentExcepetion` pode retornar uma mensagem mais espeficica
+que ajudará na depuração de um possível erro. Vejamos a seguinte situação: 
+O erro foi pego pelo `throw new ArgumenttException ("mensagem", ParaName);` num metodo acima da CallStack. 
+Ele retorna lança o erro pra pilha abaixo, que por sua vez tem um `try/catch`. Então, esse erro pode ser
+melhor depurado, analisando o `ParaName` da `ArgumentException` e sua `Message`
+
+```js
+//metodo acima da pilha
+if(agencia < 0)
+{
+    throw new ArgumentException("agencia não pode ser 0", nameof(agencia));
+}
+```
+
+```js
+//metodo abaixo na pilha
+try
+{
+    ContaCorrente conta = new ContaCorrente(0 , 456754);
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message); //vai mostrar a mensagem da pilha acima
+    Console.WriteLine(e.ParamName); // vai mostrar o nome do apontado no nameof
+}
+```
+
+<div  id ='22'/>
+
+* **Propriedade somente leitura** - Quando temos campos que não queremos mudar os números em praticamente nenhum lugar do código
+usamos o modificador `private readonly int Nome` na variável. Assim temos a construção:
+
+```js
+private readonly int _numero;
+public int Numero
+{
+    get
+    {
+        return _numero;_
+    }
+}
+```
+Contudo, o C# tem o mesmo recurso do getter e setter, onde podemos omitir toda essa construção
+por um 
+```js 
+public int Numero {get;}
+```
+ sem prejuizo de código, pois é a mesma coisa por
+"debaixo dos panos".
