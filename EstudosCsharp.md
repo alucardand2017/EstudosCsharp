@@ -33,6 +33,7 @@ ___
 20. [throw](#20)
 21. [ParaName e nameof()](#21)
 22. [Propriedade Somente Leitura](#22)
+23. [criando exceções](#23)
 
 
 <div  id ='1'/>
@@ -477,3 +478,58 @@ public int Numero {get;}
 ```
  sem prejuizo de código, pois é a mesma coisa por
 "debaixo dos panos".
+
+<div  id ='23'/>
+
+**Criando Exceções** - a Classe do tipo `Exception`, como toda classe em C#, aceita que façamos alterações, incrementando algo que o .NET não prevê,
+como nossa regra de negócios. Vamos entender como isso é realizado. Primeiramente temos que criar uma classe com o erro que queremos tratar,
+bem como colocar os construtores que ela deve conter para nos auxiliar:
+
+```js
+//arquivo SaldoInsuficienteException
+public double Saldo{get;};
+public double ValorSaque {get;}
+class SaldoInsuficienteException : Exception {
+    public SaldoInsuficienteException()
+    { }
+    public SaldoInsuficienteException ( string message) : base(message)
+    { }
+    public SaldoInsuficienteException ( double valor , double valorsaque) : 
+    this ("Valor insuficiente para saque! faltam = " + (valorsaque - saldo))
+    {
+        Saldo = saldo;
+        ValorSaque = valorsaque;
+    }
+}
+```
+
+Agora que temos nosso construtor, vamos chamado na base do erro, ou seja, no método a ser testado.
+
+```js
+if(_saldo_ < valor)
+{
+//podemos chamar qualquer uma das sobrecargas desse metodo, optei por esta.  
+    throw SaldoInsuficienteException(_saldo, valor);
+}
+```
+O `throw` reporta a pilha inferior...
+
+```js
+try
+{
+...Operação testada...
+}
+catch (SaldoInsuficienteException ex)
+{
+    Console.WriteLine(ex.Message)
+    Console.WriteLine("Exceção do tipo Saldo InsuficienteException");
+}
+```
+
+Em resumo: o Bloco do meio testa o `valor` que é superior ao saldo, e reporta o erro e seu argumento para para a pilha inferior, o bloco try/catch pega
+o erro e trata mostrando no console o `ex.Message` ("Valor insuficiente para saque! faltam! XXX ), e o Console escreve "Exceção do tipo Saldo InsuficienteException").
+
+caminho `--> Main -> try -> Sacar(valor) -> throw SaldoInsuficienteException( saldo, saque) -> reporta ao SaldoInsuficienteException (messagem) a mensagem 
+--> repassa ao Exception a mensagem --> retorna a pilha abaixo e é pego pelo catch --> mostra a mensagem e encerra a operação ` .
+
+
