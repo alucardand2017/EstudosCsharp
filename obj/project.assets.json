@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\ANDERSON\\EstudosCsharp\\EstudosCsharp\\EstudosCsharp.csproj",
+      "projectUniqueName": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\EstudosCsharp.csproj",
       "projectName": "EstudosCsharp",
-      "projectPath": "A:\\ANDERSON\\EstudosCsharp\\EstudosCsharp\\EstudosCsharp.csproj",
+      "projectPath": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\EstudosCsharp.csproj",
       "packagesPath": "C:\\Users\\ander\\.nuget\\packages\\",
-      "outputPath": "A:\\ANDERSON\\EstudosCsharp\\EstudosCsharp\\obj\\",
+      "outputPath": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ander\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -34,7 +34,9 @@ ___
 21. [ParaName e nameof()](#21)
 22. [Propriedade Somente Leitura](#22)
 23. [criando exceções](#23)
-
+24. [StackTrace](#24)
+25. [InnerException](#25)
+26. [OIException](#26)
 
 <div  id ='1'/>
 
@@ -532,4 +534,63 @@ o erro e trata mostrando no console o `ex.Message` ("Valor insuficiente para saq
 caminho `--> Main -> try -> Sacar(valor) -> throw SaldoInsuficienteException( saldo, saque) -> reporta ao SaldoInsuficienteException (messagem) a mensagem 
 --> repassa ao Exception a mensagem --> retorna a pilha abaixo e é pego pelo catch --> mostra a mensagem e encerra a operação ` .
 
+
+<div  id ='24'/>
+
+
+24. **StackTrace obs** - Algo interessante de se salientar é que o StackTrace mostra o caminho que ocorreu a exceção,
+a partir do `throw` que o lançou, entretando, caso ele tenha um novo throw new preenchido pelo caminho, ele reescreve 
+em cima do StackTrace anterior. Para evitarmos isso lançamos o `throw` sem nenhum argumento de exceção a frente.
+
+<div  id ='25'/>
+
+26. **InnerException** - Essa exceção é interna de uma outra exceção, e pode ser usada, por exemplo, para omitir informações sensiveis a um grupo espefíco.
+Vamos construir um construtor para nossa nova Exceção a ser utilizada.
+```JS
+class OperacaoFinanceiraException : Exception
+{
+    public OperacaoFinanceiraException()
+    { }
+    public OperacaoFinanceiraException(string mensagem) : base(mensagem)
+    { }
+    public OperacaoFinanceiraException(string mensagem, Exception excecaoInterna) : base(mensagem, excecaoInterna)
+    { }
+}
+```
+E agora o bloco que reportaria uma exceção do .Net irá reportar uma exceção interna, criada por nós.
+```JS
+ public void Transferir(float valor, ContaCorrente destino)
+{
+  try
+  {
+      Sacar(valor);
+  }
+  catch (SaldoInsuficienteException ex)
+  {
+      throw new OperacaoFinanceiraException("Operação Inválida!", ex );
+  }
+}
+```
+Repare que agora temos um argumento que é nossa InnerException, que preserva o StackTrace da exceção original.
+Caso queiramos saber ele, é só ver sua propriedade `Message` no código.
+
+```JS
+try
+   {
+        conta.Saldo = 100;
+        conta2.Saldo = 1000;
+        conta.Transferir(1000, conta2);
+    }
+catch (OperacaoFinanceiraException e )
+    {                
+         Console.WriteLine(e.StackTrace);
+         Console.WriteLine(e.Message);
+         Console.WriteLine("Exceção do tipo Operação FinanceiraException!");
+         Console.WriteLine("\n\n\n INFORMAÇÕES DA INNER EXCEPTION = ");
+         Console.WriteLine(e.InnerException.Message);
+         Console.WriteLine(e.InnerException.StackTrace);
+    }
+```
+
+<div  id ='26'/>
 
