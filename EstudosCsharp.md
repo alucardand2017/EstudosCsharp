@@ -37,6 +37,8 @@ ___
 24. [StackTrace](#24)
 25. [InnerException](#25)
 26. [OIException](#26)
+27. [finally](#27)
+28. [using](#28)
 
 <div  id ='1'/>
 
@@ -593,4 +595,92 @@ catch (OperacaoFinanceiraException e )
 ```
 
 <div  id ='26'/>
+
+
+26. **IOException** - É a classe de exceção do .Net que trata de erros proveninentes de entrada e saída de dados da aplicação.
+É utitilizado da mesma forma que os anteriores até aqui citados. Contudo, há alguns casos que ela deve prever, como o de uma
+parada repentina do sistema, pois os arquivos que foram lidos precisariam ser fechados antes do final da aplicação, para disponibilizar
+o recursos novamente. Para isso temos um outro recursos, o `finally`. Que será discutido abaixo.
+
+<div  id ='27'/>
+
+27. **Finally** - È uma diretira do bloco try/catch que sempre é executado caso tenha sido implementado. Então, em resumo, caso tenha sido ou não
+pego pelo try/catch ele será executado ao final. 
+
+```js
+try
+{}
+catch
+{}
+finally
+{}
+```
+então, nele poderemos fechar, a priori, os recursos que poderiam ter sido interrompidos por algum problema de leitura durante o acesso externo.
+Contudo, apesar dessa possibilidade, não é assim que tratamos tipos de erro como `FileNotFoundException()` (arquivo não encontrado). Para tal,
+podemos usar um recurso que funciona como o bloco try/catch/finally que verifica se o arquivo é nulo que substitui a lógica `try/catch/finally`...
+
+
+<div  id ='28'/>
+
+28. **using** - Essa classe utiliza a mesma logica, sem as implementações necessárias para se pegar um erro do tipo arquivo nulo por exemplo,
+está tudo implicito em seu uso. Veja o exemplo:
+
+```js
+RecursoDoSistema recurso = null;
+try
+{
+    recurso = new RecursoDoSistema();
+    recurso.Usar();
+}
+finally
+{
+    if(recurso != null)
+    {
+        recurso.Dispose();
+    }
+}
+```
+Tudo isso acima podemos trocar pela sintaxe `using`. Contudo, ao usar ela, o objeto que  instanciamos com ela deve conter uma `interface` específica para liberação de 
+recursos do sistema, a `IDispose`. Essa interface tem apenas 1 método, o `Dispose`, que fará nossa função de `Leitor.Fechar()`. 
+Veja o exemplo.
+
+```JS
+//cogido no Program.cs // verifica se os arquivos existem e aponta implicitamente o método Dispose
+//obrigatorio no construtor que o recebe, no caso o LeitorDeArquivos)
+using (LeitorDeArquivos leitor = new LeitorDeArquivos("teste.txt")) 
+  {
+      leitor.LerProximaLinha();
+  }
+```
+
+```JS
+//arquivo LeitorDeArquivos.cs
+// o construtor deve assinar o contrato com o Idisposable do .Net para liberar os recursos
+class LeitorDeArquivos : IDisposable 
+{
+   public string Arquivo { get; }
+   public LeitorDeArquivos(string arquivo)
+   {
+       Arquivo = arquivo;
+       Console.WriteLine("Abrindo Arquivo");
+       //throw new FileNotFoundException();
+   }
+   public string LerProximaLinha()
+   {
+       Console.WriteLine("lendo proxima linha...");
+       //throw new IOException();
+       return "linha do arquivo";
+   }
+   public void Dispose() // é chamado para fechar os recursos de leitura de arquivos, obritatorio
+   {
+       Console.WriteLine("Fechando os arquivos");
+   }
+}
+```
+No caso acima pordemos testar as seguintes situações: 
+ * Falta de arquivo (null) //não chama o Dispose pq não precisa.
+ * Erro na leitura do arquivo por alguma interrupção //chama o Dispose e fecha a aplicação de leitura.
+ * Sem erros //chama o Dispose para fechar o arquivo
+
+Em todas as situações acima, o using utiliza ou não o Dispose de maneira correta.
 
