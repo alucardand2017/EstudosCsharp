@@ -8,26 +8,35 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ander\\.nuget\\packages\\": {}
+    "C:\\Users\\ander\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\EstudosCsharp.csproj",
+      "projectUniqueName": "D:\\1_PROJETOS\\meus-repositorios-git\\EstudosCsharp\\EstudosCsharp.csproj",
       "projectName": "EstudosCsharp",
-      "projectPath": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\EstudosCsharp.csproj",
+      "projectPath": "D:\\1_PROJETOS\\meus-repositorios-git\\EstudosCsharp\\EstudosCsharp.csproj",
       "packagesPath": "C:\\Users\\ander\\.nuget\\packages\\",
-      "outputPath": "A:\\ANDERSON\\EstudoCSharp\\EstudoCSharpMarkdown\\EstudosCsharp\\obj\\",
+      "outputPath": "D:\\1_PROJETOS\\meus-repositorios-git\\EstudosCsharp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\ander\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -51,7 +60,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -60,7 +70,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

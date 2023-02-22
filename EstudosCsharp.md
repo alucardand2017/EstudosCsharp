@@ -9,41 +9,42 @@ ___
 ___
 
 
-### Sumário
+### Sumario
 
 1. [Classe](#1) 
 2. [Metodo](#2)
-3. [Funcões](#3)
-4. [Escopo](#4)
+3. [Funcoes](#3)
+4. [Escopo e Object](#4)
 5. [NameSpace](#5)
 6. [Modificadores](#6)
-7. [Herança](#7)
+7. [HeranÃ§a](#7)
 8. [Encapsulamento](#8)
 9. [Construtor](#9)
-10. [Membros Estáticos](#10)
+10. [Membros Estaticos](#10)
 11. [Polimorfismo](#11)
 12. [Sobrecarga](#12)
 13. [Getters e Setters](#13)
 14. [Sobrecarga de Construtores](#14)
-15. [Abstração](#15)
-16. [Herança Derivada](#16)
+15. [AbstraÃ§ao](#15)
+16. [HeranÃ§a Derivada](#16)
 17. [Interface](#17)
 18. [Try e Catch](#18)
-19. [Erros de Exceção Geral](#19)
+19. [Erros de ExceÃ§ao Geral](#19)
 20. [throw](#20)
 21. [ParaName e nameof()](#21)
 22. [Propriedade Somente Leitura](#22)
-23. [criando exceções](#23)
+23. [criando exceÃ§oes](#23)
 24. [StackTrace](#24)
 25. [InnerException](#25)
 26. [OIException](#26)
 27. [finally](#27)
 28. [using](#28)
+29. [FileSystem](#29)
 
 <div  id ='1'/>
 
- * **Classe**  - Utilizamos normalmente para desenvolver um ou mais métodos e atribuições que visam dividir o código de foma a deixa-lo otimizado para sua utilização, respeitando os conceitos e convenções de forma a deixar-lo intelegível.
-~~~JavaScript
+ * **Classe**  - Utilizamos normalmente para desenvolver um ou mais metodos e atribuiï¿½ï¿½es que visam dividir o codigo de foma a deixa-lo otimizado para sua utilizaÃ§ao, respeitando os conceitos e convenÃ§oes de forma a deixar-lo intelegivel.
+~~~c#
 class Program 
 {
     static void Main(string[] args)
@@ -53,41 +54,43 @@ class Program
 
 <div  id ='2'/>
 
- * **Método** - Aplicação realizada para execução de uma tafera, normalmente atribuíndo valores a variáveis e utilizando processamento computacional para isso (contas).
+ * **Metodo** - AplicaÃ§ao realizada para execuÃ§ao de uma tafera, normalmente atribuï¿½ndo valores a variaveis e utilizando processamento computacional para isso (contas).
  
 <div  id ='3'/>
 
- * **Funções** - Bloco de código criado para realizar determinadas tarefas necessárias a uma implementação.
+ * **Funcoes** - Bloco de codigo criado para realizar determinadas tarefas necessarias a uma implementaÃ§ao.
  fazem parte da logica de uma classe ou escopo maior.
   
 <div  id ='4'/>
 
- * **Escopo** - Bloco lógico definido entre chaves que pode conter uma ou várias lógicas/classes/métodos/campos e funções.
+ * **Escopo** - Bloco logico definido entre chaves que pode conter uma ou varias logicas/classes/metodos/campos e funÃ§oes.
+ *  **Class Object** - A classe object Ã© uma classe genÃ©rica que todas as classes jÃ¡ herdam por default. Em resumo, Object Ã© a super classe de toda a classe, e automaticamente qualquer instancia possue seus mÃ©todos (`ToString()`, `GetHashCode()`, `etc`)
+ *   
 
 <div  id ='5'/>
 
- * **NameSpace** - Bloco onde que contem uma solução (conjunto de codigos que formam um programa), funcionando como uma classe maior dentro do C# e que torna especifico todas as classes que a contém
+ * **NameSpace** - Bloco onde que contem uma soluÃ§ao (conjunto de codigos que formam um programa), funcionando como uma classe maior dentro do C# e que torna especifico todas as classes que a contam
 
 <div  id ='6'/>
 
- * **Modificadores** - palavras reservadas no C# que especificam o que o quão acessível para mudança está aquele campo.
+ * **Modificadores** - palavras reservadas no C# que especificam o que o quao acessivel para mudanÃ§a esta aquele campo.
    * **_private_** - torna o campo privado, acessado apelas pelo escopo pertencente.
    * **_protected_** - torna o campo protegido, acessado apelas pelo escopo pertencente e suas classes filhas.
-   * **_public_** - torna o campo público, acessado de qualquer classe dentro do NameSpace da solução. 
+   * **_public_** - torna o campo publico, acessado de qualquer classe dentro do NameSpace da solucao. 
 
 <div  id ='7'/>
 
- * **Herança** - Conceito aplicado a classes que podem acessar parâmetros e estruturas de outras classes, numa relação de classe base e classe filha. Os atributos da classe base podem ser acessados pela classe filha.
+ * **HeranÃ§a** - Conceito aplicado a classes que podem acessar parï¿½metros e estruturas de outras classes, numa relaï¿½ï¿½o de classe base e classe filha. Os atributos da classe base podem ser acessados pela classe filha.
 
-~~~JavaScript
-//repare nessa linha onde temos a relação filha : base
+~~~c#
+//repare nessa linha onde temos a relaï¿½ï¿½o filha : base
 public class Diretor : Funcionario  
 {
-   Console.WriteLine("A varíavel {0} tem valor", x);
+   Console.WriteLine("A varï¿½avel {0} tem valor", x);
 }
 ~~~
 
-```JavaScript
+```c#
 public class Funcionario // classe base
 {
     protected int x = 10;
@@ -96,14 +99,14 @@ public class Funcionario // classe base
 
 <div  id ='8'/>
 
- * **Encapsulamento** - Conceito aplicado a variáveis e campos que necessitam de um regramento específico para seu acesso, dando ou não permissão para escritas e leituras de campos/variáveis.
+ * **Encapsulamento** - Conceito aplicado a variï¿½veis e campos que necessitam de um regramento especï¿½fico para seu acesso, dando ou nï¿½o permissï¿½o para escritas e leituras de campos/variï¿½veis.
 
 <div  id ='9'/>
 
- * **Construtor** - Metodo que especifica como sua classe deve "ser", especificando quais entradas e saídas são obrigatórias
+ * **Construtor** - Metodo que especifica como sua classe deve "ser", especificando quais entradas e saï¿½das sï¿½o obrigatï¿½rias
 no nomento do seu instanciamento.
 
-~~~JavaScript
+~~~c#
 //arquivo Funcionario.cs
 public class Funcionario // classe base
 {
@@ -116,7 +119,7 @@ public class Funcionario // classe base
 }
 ~~~
 
-~~~JavaScript
+~~~c#
 public class Auxiliar : Funcionario
 {
     Auxiliar carlos = new Auxiliar( 1000 , 337 189 888 82);
@@ -125,16 +128,16 @@ public class Auxiliar : Funcionario
 
 <div  id ='10'/>
 
- * **Membros Estáticos** - Uma propriedade da Classe a que abriga, sendo acessado apenas por ela.
-~~~JavaScript
+ * **Membros Estï¿½ticos** - Uma propriedade da Classe a que abriga, sendo acessado apenas por ela.
+~~~c#
 //exemplo de membro estatico com getter/setter
 public static int TotalDeFuncionarios { get ; private set}  
 ~~~
 
 <div  id ='11'/>
 
- * **Polimorfismo** - Utilizado para escrever métodos/funções de uma classe que contem aquela mesma função, mas com atribuições dentro do escopo diferentes
-~~~JavaScript
+ * **Polimorfismo** - Utilizado para escrever mï¿½todos/funï¿½ï¿½es de uma classe que contem aquela mesma funï¿½ï¿½o, mas com atribuiï¿½ï¿½es dentro do escopo diferentes
+~~~c#
 //Construtor abstrato que indica que temos esse metodo
 public abstract class Funcionario 
 {
@@ -143,7 +146,7 @@ public abstract class Funcionario
 }
 ~~~
 
-~~~JavaScript
+~~~c#
 public class Diretor : Funcionario
 {
     public override double GetBonificacao() 
@@ -153,7 +156,7 @@ public class Diretor : Funcionario
 }
 ~~~
 
-~~~JavaScript
+~~~c#
 //arquivo GerenteDeConta.cs
 public class GerenteDeConta : Funcionario 
 {
@@ -167,13 +170,13 @@ public class GerenteDeConta : Funcionario
 <div  id ='12'/>
  
 
-* **Sobrecarga** - É a forma que nos permite ter métodos chamados da mesma referencia (nome) entre as diferentes classes, onde cada método pode ter escopo diferente.
-O exemplo acima é um tipo de sobrecarga de método.
+* **Sobrecarga** - ï¿½ a forma que nos permite ter mï¿½todos chamados da mesma referencia (nome) entre as diferentes classes, onde cada mï¿½todo pode ter escopo diferente.
+O exemplo acima ï¿½ um tipo de sobrecarga de mï¿½todo.
 
 <div  id ='13'/>
 
- * **Getters e Setters** - Expressão que representa uma lógica de acesso a variáveis e campos que tem restrição de acesso por parte do código. Sua forma de representação por der um `public double Salario {get; set;}`, que representa ao código o seguinte método:
-~~~JavaScript
+ * **Getters e Setters** - Expressï¿½o que representa uma lï¿½gica de acesso a variï¿½veis e campos que tem restriï¿½ï¿½o de acesso por parte do cï¿½digo. Sua forma de representaï¿½ï¿½o por der um `public double Salario {get; set;}`, que representa ao cï¿½digo o seguinte mï¿½todo:
+~~~c#
 public double Salario
 {
     get
@@ -190,11 +193,11 @@ public double Salario
 
 <div  id ='14'/>
 
- * **Sobrecarga de Construtores** - Utiliza o mesmo princípio da Sobrecarga, mas aplicado a Construtores de Classes.  
+ * **Sobrecarga de Construtores** - Utiliza o mesmo princï¿½pio da Sobrecarga, mas aplicado a Construtores de Classes.  
 
-Sendo os campo CPF e Salário Getters e Setters, podemos ter:
+Sendo os campo CPF e Salï¿½rio Getters e Setters, podemos ter:
 
-~~~JavaScript
+~~~c#
 public class Diretor : Funcionario 
 {
     public Diretor( double salario, string cpf) : base(salario , cpf) 
@@ -205,7 +208,7 @@ public class Diretor : Funcionario
 ~~~
 
 
-```JavaScript
+```c#
 public Funcionario(double salario , string cpf)
 {
     CPF = cpf;
@@ -213,10 +216,10 @@ public Funcionario(double salario , string cpf)
     Salario = salario;
 }
 ```
-Repare que a `Class Diretor` é filha da `Class Funcionário` e isso deve ser evidenciado para o C# com os `: Nome_Classe_base`.
-Pomdemos ainda ter uma situação em que devemos usar palavras reservadas para acessar de forma correta esses construtores:
+Repare que a `Class Diretor` ï¿½ filha da `Class Funcionï¿½rio` e isso deve ser evidenciado para o C# com os `: Nome_Classe_base`.
+Pomdemos ainda ter uma situaï¿½ï¿½o em que devemos usar palavras reservadas para acessar de forma correta esses construtores:
 
-```JavaScript
+```c#
 public class Diretor: Funcionario
 {
     public override GetBonificacao()
@@ -225,7 +228,7 @@ public class Diretor: Funcionario
     }
 }
 ```
-~~~JavaScript
+~~~c#
 public class Funcionario
 {
     public virtual GetBonificacao()
@@ -237,11 +240,9 @@ public class Funcionario
 
 <div  id ='15'/>
 
- * **Abstração** - Ainda com respeito a métodos de construtores, temos um recurso de abstração onde os membros 
-  dessa classe não são objetos do programa, mas balizadores de como esses objetos devem ser instanciados. Assim sendo, um método de construtor abstrato não pode ser instanciado, servindo como
-uma forma para bolos.
+ * **Abstracaoo** - Ainda com respeito a metodos de construtores, temos um recurso da abstracao, onde os membros dessa classe nao sao objetos do programa, mas balizadores de como esses objetos devem ser instanciados. Assim sendo, um metodo de construtor abstrato nao pode ser instanciado. Ã‰ similar um processo de assinatura. onde hÃ¡ o comprometimento da classe que herda uma abstraÃ§Ã£o, de implementar seus mÃ©todos dentro do seu prÃ³prio escopo.
 
-~~~JavaScript
+~~~c#
 public abstract class Funcionario 
 {
     public Funcionario(double salario , string cpf)
@@ -251,7 +252,7 @@ public abstract class Funcionario
 }
 ~~~
 
-```JavaScript
+```c#
 public class Diretor : Funcionario
 {
     public Diretor( double salario, string cpf) : base(salario , cpf) 
@@ -267,16 +268,14 @@ public class Diretor : Funcionario
 
 <div  id ='16'/>
 
- * **Herança Derivada** - Quando uma classe filha herda os parametros de outra classe filha, que por sua vez herda da classe pai. 
-A Classe filha intermediária pode nesse processo possuir propriedades exclusivas para aqueles membros daquela classe, e ainda sim
-herdar as outras caracteristicas da classe base. Nesse exemplo podemos dizer que ela funciona como um filtro, onde podemos
-selecionar quem herda quais caracteristicas segundo as necessidades do negócio.
+ * **HeranÃ§a Derivada** - Quando uma classe filha herda os parametros de outra classe filha, que por sua vez herda da classe pai. A Classe filha intermediaria pode nesse processo possuir propriedades exclusivas para aqueles membros daquela classe, e ainda sim
+herdar as outras caracteristicas da classe base. Nesse exemplo podemos dizer que ela funciona como um filtro, onde podemos selecionar quem herda quais caracteristicas segundo as necessidades do negocio.
     * `Membros separados ---> Classe Exclusiva ---> Classe geral`
     * `Membros comuns ---> ---> ---> ---> ---> ---> Classe geral`
 
 
 Um exemplo de classe exclusiva, fazemos os membros herdarem a partir dessa classe:
-```JavaScript
+```c#
 public abstract class Autenticavel : Funcionario
 {
     public string Senha { get; set; }
@@ -291,7 +290,7 @@ public abstract class Autenticavel : Funcionario
 ```
 
 A classe base tem a seguinte cara:
-~~~JavaScript
+~~~c#
 public abstract class Funcionario 
 {
    public string Nome { get; set; }
@@ -308,9 +307,9 @@ public abstract class Funcionario
 ~~~
 
 Abaixo vemos a classe `Auxiliar` herdar apenas de `Funcionario`, enquanto as demais herdam de `Autenticavel` que por sua vez herda
-de `Funcionario`. As classes que herdaram de `Autenticavel` tem outros parâmetros, como `Senha`.
+de `Funcionario`. As classes que herdaram de `Autenticavel` tem outros parametros, como `Senha`.
 
-~~~JavaScript
+~~~c#
 // Arquivo GererenteDeContas.cs
 public class GererenteDeContas : Autenticavel
 {...}
@@ -324,19 +323,18 @@ public class Auxiliar : Funcionario
 
 <div  id ='17'/>
 
- * **Interface** - como não temos herança multipla no C#, quando uma classe tenta herdar diretamente de outras 2 classes
-temos o recurso de `interface`, ela parece uma classe abstrata e tem apenas metodos abstratos (apesar de não precisar escrever `abstract`).
-Ela é como um contrato, que diz que tal método apontado por ela será usado por quem chama a interface, mas que será implementado
-por esta classe, já que ela não pode faze-lo. A convenção diz que ela deve ser escrita por `I+Nome`
+ * **Interface** - como nao temos heranÃ§a multipla no C#, quando uma classe tenta herdar diretamente de outras 2 classes temos o recurso de `interface`, ela parece uma classe abstrata e tem apenas metodos abstratos (apesar de nao precisar escrever `abstract`).
+Ela e como um contrato, que diz que tal metodo apontado por ela sera usado por quem chama a interface, mas que sera implementado por esta classe, ja que ela nao pode faze-lo. A convenÃ§ao diz que ela deve ser escrita por `I+Nome`
 
-```JavaScript
+```c#
 //arquivo IAutenticavel.cs
 public interface IAutenticavel
 { 
     bool Autenticar(string senha);              
 }
 ```
-```JavaScript
+
+```c#
 //arquivo Diretor.cs
 public class Diretor : Funcionario, IAutenticavel 
 {
@@ -348,7 +346,8 @@ public class Diretor : Funcionario, IAutenticavel
    }
 }
 ```
-```JavaScript
+
+```c#
 //arquivo GerenteDeConta.cs
 public class GerenteDeConta : Funcionario, IAutenticavel
 {
@@ -363,17 +362,14 @@ public class GerenteDeConta : Funcionario, IAutenticavel
  
 <div  id ='18'/>
 
-* **try e catch** - Utilizado para tratamento de erros de diversas origens. Ele testa o código/método
-dentro do seu escopo e retorna uma mensagem de erro caso seja detectada a falha, sendo que está foi espeficicada
-dentro do codigo (não trata falhas não especificadas). Vale dizer que num mesmo bloco podemos ter mais de um bloco
-`catch` para tratamento de erros.
+* **try e catch** - Utilizado para tratamento de erros de diversas origens. Ele testa o codigo/metodo dentro do seu escopo e retorna uma mensagem de erro caso seja detectada a falha, sendo que esta foi espeficicada dentro do codigo (nao trata falhas nao especificadas). Vale dizer que num mesmo bloco podemos ter mais de um bloco `catch` para tratamento de erros.
 
-```JavaScript 
+```c# 
 try
 {
     Metodo();
 }
-//trata a divisão por zero no método Metodo()
+//trata a divisï¿½o por zero no mï¿½todo Metodo()
 catch (DivideByZeroException excecao)
 {
 Console.WriteLine(excecao.Message);
@@ -383,24 +379,21 @@ Console.WriteLine(excecao.StackTrace);
 
 <div  id ='19'/>
 
-* **Erros de Exceção Geral** - podemos tratar os erros com o bloco Try/Catch referenciando um erro específico
-como `NullReferenceException` e `DividedByZero`. Contudo, há uma forma mais generalista de trata-los, onde 
-podemos espeficicar apenas os erros que quisermos, e deixar os demais para um tratamento geral, segundo o código:
+* **Erros de Excecao Geral** - podemos tratar os erros com o bloco Try/Catch referenciando um erro especifico como `NullReferenceException` e `DividedByZero`. Contudo, ha uma forma mais generalista de trata-los, onde podemos espeficicar apenas os erros que quisermos, e deixar os demais para um tratamento geral, segundo o codigo:
 
-
-```JavaScript 
+```c# 
 try
 {
     Metodo();
 }
-//trata a divisão por zero dentro de Exception
+//trata a divisï¿½o por zero dentro de Exception
 catch (DivideByZeroException e)
 {
     Console.WriteLine(e.Message);
     Console.WriteLine(e.StackTrace);
     Console.WriteLine("Erro de referencia vazia!");
 }
-//trata as demais exceçoes 
+//trata as demais exceï¿½oes 
 catch (Exception e)
 {
     Console.WriteLine(e.Message);
@@ -408,14 +401,14 @@ catch (Exception e)
     Console.WriteLine("Aconteceu um outro erro!");
 }
 ```
-por convenção, chamamos as variaveis que tratam erro de `e`.
+por convencao, chamamos as variaveis que tratam erro de `e`.
 
 <div  id ='20'/>
 
-* **throw** - passa a frente uma exceção sem encerrar o código, saindo dele e passando para
-o próximo método abaixo no CallStack (pilha de chamada).
+* **throw** - passa a frente uma excecao sem encerrar o codigo, saindo dele e passando para
+o proximo metodo abaixo no CallStack (pilha de chamada).
 
-```js
+```csharp
 try
 {         
     return numero / divisor;
@@ -434,20 +427,18 @@ catch (Exception)
 <div  id ='21'/>
 
 * **ParaName e nameof(variavel)** - A classe `ArgumentExcepetion` pode retornar uma mensagem mais espeficica
-que ajudará na depuração de um possível erro. Vejamos a seguinte situação: 
-O erro foi pego pelo `throw new ArgumenttException ("mensagem", ParaName);` num metodo acima da CallStack. 
-Ele retorna lança o erro pra pilha abaixo, que por sua vez tem um `try/catch`. Então, esse erro pode ser
-melhor depurado, analisando o `ParaName` da `ArgumentException` e sua `Message`
+que ajudara na depuracao de um possivel erro. Vejamos a seguinte situacao: O erro foi pego pelo `throw new ArgumenttException ("mensagem", ParaName);` num metodo acima da CallStack. 
+Ele retorna lanca o erro pra pilha abaixo, que por sua vez tem um `try/catch`. Entao, esse erro pode ser melhor depurado, analisando o `ParaName` da `ArgumentException` e sua `Message`
 
-```js
+```c#
 //metodo acima da pilha
 if(agencia < 0)
 {
-    throw new ArgumentException("agencia não pode ser 0", nameof(agencia));
+    throw new ArgumentException("agencia nï¿½o pode ser 0", nameof(agencia));
 }
 ```
 
-```js
+```c#
 //metodo abaixo na pilha
 try
 {
@@ -462,10 +453,9 @@ catch (ArgumentException e)
 
 <div  id ='22'/>
 
-* **Propriedade somente leitura** - Quando temos campos que não queremos mudar os números em praticamente nenhum lugar do código
-usamos o modificador `private readonly int Nome` na variável. Assim temos a construção:
+* **Propriedade somente leitura** - Quando temos campos que nao queremos mudar os numeros em praticamente nenhum lugar do codigo usamos o modificador `private readonly int Nome` na variavel. Assim temos a construcao:
 
-```js
+```c#
 private readonly int _numero;
 public int Numero
 {
@@ -475,21 +465,18 @@ public int Numero
     }
 }
 ```
-Contudo, o C# tem o mesmo recurso do getter e setter, onde podemos omitir toda essa construção
+Contudo, o C# tem o mesmo recurso do getter e setter, onde podemos omitir toda essa construcao
 por um 
-```js 
+```c# 
 public int Numero {get;}
 ```
- sem prejuizo de código, pois é a mesma coisa por
-"debaixo dos panos".
+ sem prejuizo de codigo, pois e a mesma coisa por "debaixo dos panos".
 
 <div  id ='23'/>
 
-**Criando Exceções** - a Classe do tipo `Exception`, como toda classe em C#, aceita que façamos alterações, incrementando algo que o .NET não prevê,
-como nossa regra de negócios. Vamos entender como isso é realizado. Primeiramente temos que criar uma classe com o erro que queremos tratar,
-bem como colocar os construtores que ela deve conter para nos auxiliar:
+**Criando Excecoes** - a Classe do tipo `Exception`, como toda classe em C#, aceita que facamos alteracoes, incrementando algo que o .NET noo preve, como nossa regra de negocios. Vamos entender como isso e realizado. Primeiramente temos que criar uma classe com o erro que queremos tratar, bem como colocar os construtores que ela deve conter para nos auxiliar:
 
-```js
+```c#
 //arquivo SaldoInsuficienteException
 public double Saldo{get;};
 public double ValorSaque {get;}
@@ -507,9 +494,9 @@ class SaldoInsuficienteException : Exception {
 }
 ```
 
-Agora que temos nosso construtor, vamos chamado na base do erro, ou seja, no método a ser testado.
+Agora que temos nosso construtor, vamos chamado na base do erro, ou seja, no metodo a ser testado.
 
-```js
+```c#
 if(_saldo_ < valor)
 {
 //podemos chamar qualquer uma das sobrecargas desse metodo, optei por esta.  
@@ -518,37 +505,35 @@ if(_saldo_ < valor)
 ```
 O `throw` reporta a pilha inferior...
 
-```js
+```c#
 try
 {
-...Operação testada...
+...Operacao testada...
 }
 catch (SaldoInsuficienteException ex)
 {
     Console.WriteLine(ex.Message)
-    Console.WriteLine("Exceção do tipo Saldo InsuficienteException");
+    Console.WriteLine("Exceï¿½ï¿½o do tipo Saldo InsuficienteException");
 }
 ```
 
-Em resumo: o Bloco do meio testa o `valor` que é superior ao saldo, e reporta o erro e seu argumento para para a pilha inferior, o bloco try/catch pega
-o erro e trata mostrando no console o `ex.Message` ("Valor insuficiente para saque! faltam! XXX ), e o Console escreve "Exceção do tipo Saldo InsuficienteException").
+Em resumo: o Bloco do meio testa o `valor` que e superior ao saldo, e reporta o erro e seu argumento para para a pilha inferior, o bloco try/catch pega
+o erro e trata mostrando no console o `ex.Message` ("Valor insuficiente para saque! faltam! XXX ), e o Console escreve "Excecao do tipo Saldo InsuficienteException").
 
 caminho `--> Main -> try -> Sacar(valor) -> throw SaldoInsuficienteException( saldo, saque) -> reporta ao SaldoInsuficienteException (messagem) a mensagem 
---> repassa ao Exception a mensagem --> retorna a pilha abaixo e é pego pelo catch --> mostra a mensagem e encerra a operação ` .
+--> repassa ao Exception a mensagem --> retorna a pilha abaixo e e pego pelo catch --> mostra a mensagem e encerra a operacao ` .
 
 
 <div  id ='24'/>
 
 
-24. **StackTrace obs** - Algo interessante de se salientar é que o StackTrace mostra o caminho que ocorreu a exceção,
-a partir do `throw` que o lançou, entretando, caso ele tenha um novo throw new preenchido pelo caminho, ele reescreve 
-em cima do StackTrace anterior. Para evitarmos isso lançamos o `throw` sem nenhum argumento de exceção a frente.
+24. **StackTrace obs** - Algo interessante de se salientar ï¿½ que o StackTrace mostra o caminho que ocorreu a excecao, a partir do `throw` que o lancou, entretando, caso ele tenha um novo throw new preenchido pelo caminho, ele reescreve em cima do StackTrace anterior. Para evitarmos isso lancamos o `throw` sem nenhum argumento de excecoo a frente.
 
 <div  id ='25'/>
 
-26. **InnerException** - Essa exceção é interna de uma outra exceção, e pode ser usada, por exemplo, para omitir informações sensiveis a um grupo espefíco.
-Vamos construir um construtor para nossa nova Exceção a ser utilizada.
-```JS
+26. **InnerException** - Essa excecao e interna de uma outra excecao, e pode ser usada, por exemplo, para omitir informacoes sensiveis a um grupo espefaco.
+Vamos construir um construtor para nossa nova Excecao a ser utilizada.
+```c#
 class OperacaoFinanceiraException : Exception
 {
     public OperacaoFinanceiraException()
@@ -559,8 +544,8 @@ class OperacaoFinanceiraException : Exception
     { }
 }
 ```
-E agora o bloco que reportaria uma exceção do .Net irá reportar uma exceção interna, criada por nós.
-```JS
+E agora o bloco que reportaria uma exceï¿½ï¿½o do .Net irï¿½ reportar uma exceï¿½ï¿½o interna, criada por nï¿½s.
+```c#
  public void Transferir(float valor, ContaCorrente destino)
 {
   try
@@ -569,14 +554,14 @@ E agora o bloco que reportaria uma exceção do .Net irá reportar uma exceção inte
   }
   catch (SaldoInsuficienteException ex)
   {
-      throw new OperacaoFinanceiraException("Operação Inválida!", ex );
+      throw new OperacaoFinanceiraException("Operaï¿½ï¿½o Invï¿½lida!", ex );
   }
 }
 ```
-Repare que agora temos um argumento que é nossa InnerException, que preserva o StackTrace da exceção original.
-Caso queiramos saber ele, é só ver sua propriedade `Message` no código.
+Repare que agora temos um argumento que ï¿½ nossa InnerException, que preserva o StackTrace da exceï¿½ï¿½o original.
+Caso queiramos saber ele, ï¿½ sï¿½ ver sua propriedade `Message` no cï¿½digo.
 
-```JS
+```c#
 try
    {
         conta.Saldo = 100;
@@ -587,8 +572,8 @@ catch (OperacaoFinanceiraException e )
     {                
          Console.WriteLine(e.StackTrace);
          Console.WriteLine(e.Message);
-         Console.WriteLine("Exceção do tipo Operação FinanceiraException!");
-         Console.WriteLine("\n\n\n INFORMAÇÕES DA INNER EXCEPTION = ");
+         Console.WriteLine("Exceï¿½ï¿½o do tipo Operaï¿½ï¿½o FinanceiraException!");
+         Console.WriteLine("\n\n\n INFORMAï¿½ï¿½ES DA INNER EXCEPTION = ");
          Console.WriteLine(e.InnerException.Message);
          Console.WriteLine(e.InnerException.StackTrace);
     }
@@ -597,17 +582,17 @@ catch (OperacaoFinanceiraException e )
 <div  id ='26'/>
 
 
-26. **IOException** - É a classe de exceção do .Net que trata de erros proveninentes de entrada e saída de dados da aplicação.
-É utitilizado da mesma forma que os anteriores até aqui citados. Contudo, há alguns casos que ela deve prever, como o de uma
-parada repentina do sistema, pois os arquivos que foram lidos precisariam ser fechados antes do final da aplicação, para disponibilizar
-o recursos novamente. Para isso temos um outro recursos, o `finally`. Que será discutido abaixo.
+26. **IOException** - ï¿½ a classe de exceï¿½ï¿½o do .Net que trata de erros proveninentes de entrada e saï¿½da de dados da aplicaï¿½ï¿½o.
+ï¿½ utitilizado da mesma forma que os anteriores atï¿½ aqui citados. Contudo, hï¿½ alguns casos que ela deve prever, como o de uma
+parada repentina do sistema, pois os arquivos que foram lidos precisariam ser fechados antes do final da aplicaï¿½ï¿½o, para disponibilizar
+o recursos novamente. Para isso temos um outro recursos, o `finally`. Que serï¿½ discutido abaixo.
 
 <div  id ='27'/>
 
-27. **Finally** - È uma diretira do bloco try/catch que sempre é executado caso tenha sido implementado. Então, em resumo, caso tenha sido ou não
-pego pelo try/catch ele será executado ao final. 
+27. **Finally** - ï¿½ uma diretira do bloco try/catch que sempre ï¿½ executado caso tenha sido implementado. Entï¿½o, em resumo, caso tenha sido ou nï¿½o
+pego pelo try/catch ele serï¿½ executado ao final. 
 
-```js
+```c#
 try
 {}
 catch
@@ -615,17 +600,17 @@ catch
 finally
 {}
 ```
-então, nele poderemos fechar, a priori, os recursos que poderiam ter sido interrompidos por algum problema de leitura durante o acesso externo.
-Contudo, apesar dessa possibilidade, não é assim que tratamos tipos de erro como `FileNotFoundException()` (arquivo não encontrado). Para tal,
-podemos usar um recurso que funciona como o bloco try/catch/finally que verifica se o arquivo é nulo que substitui a lógica `try/catch/finally`...
+entï¿½o, nele poderemos fechar, a priori, os recursos que poderiam ter sido interrompidos por algum problema de leitura durante o acesso externo.
+Contudo, apesar dessa possibilidade, nï¿½o ï¿½ assim que tratamos tipos de erro como `FileNotFoundException()` (arquivo nï¿½o encontrado). Para tal,
+podemos usar um recurso que funciona como o bloco try/catch/finally que verifica se o arquivo ï¿½ nulo que substitui a lï¿½gica `try/catch/finally`...
 
 
 <div  id ='28'/>
 
-28. **using** - Essa classe utiliza a mesma logica, sem as implementações necessárias para se pegar um erro do tipo arquivo nulo por exemplo,
-está tudo implicito em seu uso. Veja o exemplo:
+28. **using** - Essa classe utiliza a mesma logica, sem as implementaï¿½ï¿½es necessï¿½rias para se pegar um erro do tipo arquivo nulo por exemplo,
+estï¿½ tudo implicito em seu uso. Veja o exemplo:
 
-```js
+```c#
 RecursoDoSistema recurso = null;
 try
 {
@@ -640,12 +625,12 @@ finally
     }
 }
 ```
-Tudo isso acima podemos trocar pela sintaxe `using`. Contudo, ao usar ela, o objeto que  instanciamos com ela deve conter uma `interface` específica para liberação de 
-recursos do sistema, a `IDispose`. Essa interface tem apenas 1 método, o `Dispose`, que fará nossa função de `Leitor.Fechar()`. 
+Tudo isso acima podemos trocar pela sintaxe `using`. Contudo, ao usar ela, o objeto que  instanciamos com ela deve conter uma `interface` especï¿½fica para liberaï¿½ï¿½o de 
+recursos do sistema, a `IDispose`. Essa interface tem apenas 1 mï¿½todo, o `Dispose`, que farï¿½ nossa funï¿½ï¿½o de `Leitor.Fechar()`. 
 Veja o exemplo.
 
-```JS
-//cogido no Program.cs // verifica se os arquivos existem e aponta implicitamente o método Dispose
+```c#
+//cogido no Program.cs // verifica se os arquivos existem e aponta implicitamente o mï¿½todo Dispose
 //obrigatorio no construtor que o recebe, no caso o LeitorDeArquivos)
 using (LeitorDeArquivos leitor = new LeitorDeArquivos("teste.txt")) 
   {
@@ -653,7 +638,7 @@ using (LeitorDeArquivos leitor = new LeitorDeArquivos("teste.txt"))
   }
 ```
 
-```JS
+```c#
 //arquivo LeitorDeArquivos.cs
 // o construtor deve assinar o contrato com o Idisposable do .Net para liberar os recursos
 class LeitorDeArquivos : IDisposable 
@@ -671,16 +656,58 @@ class LeitorDeArquivos : IDisposable
        //throw new IOException();
        return "linha do arquivo";
    }
-   public void Dispose() // é chamado para fechar os recursos de leitura de arquivos, obritatorio
+   public void Dispose() // ï¿½ chamado para fechar os recursos de leitura de arquivos, obritatorio
    {
        Console.WriteLine("Fechando os arquivos");
    }
 }
 ```
-No caso acima pordemos testar as seguintes situações: 
- * Falta de arquivo (null) //não chama o Dispose pq não precisa.
- * Erro na leitura do arquivo por alguma interrupção //chama o Dispose e fecha a aplicação de leitura.
+No caso acima pordemos testar as seguintes situaï¿½ï¿½es: 
+ * Falta de arquivo (null) //nï¿½o chama o Dispose pq nï¿½o precisa.
+ * Erro na leitura do arquivo por alguma interrupï¿½ï¿½o //chama o Dispose e fecha a aplicaï¿½ï¿½o de leitura.
  * Sem erros //chama o Dispose para fechar o arquivo
 
-Em todas as situações acima, o using utiliza ou não o Dispose de maneira correta.
+Em todas as situaï¿½ï¿½es acima, o using utiliza ou nï¿½o o Dispose de maneira correta.
+
+<div  id ='29'/>
+
+29. **FileSystem** - O sistema de arquivos normalmente nÃ£o armazena todo o dado num unico arquivo, ja que nao Ã© prÃ¡tico e consumiria muita memÃ³ria. A estratÃ©gia agora Ã© falar sobre fluxo de dados, que picota o arquivo em partes, e vai entregando ao navegador, programa, etc.
+Vamos colocar o arquivo contas.txt dentro de `/bin/Debug/net5.0/`, que Ã© a pasta raiz do nosso projeto.
+
+```c#
+    var enderecoDoArquivo = "contas.txt";
+    var numeroDeBytesLidos = -1;
+    var fluxoDoArquivo = new FileStream(enderecoDoArquivo, FileMode.Open);
+    var buffer = new by[1024]; //caso nÃ£o seja preenchido retorna apÃ³s a leitura o nÃºmero 0 {20, 45, 50, 251,0,0,0,0,0,0 ...}
+    While(fluxoDeBytesLidos !=0){
+        numeroDeBytesLidos = fluxoDoArquivo.Read(buffer, 0, 1024);
+    }
+    //public override int Read(byte[] array, int offset, int count) ... traduzindo
+    //public override int Read(bytes lidos, do inicio da leitura , qnts posiÃ§Ãµes quer ler)
+    fluxoDoArquivo.Read(buffer, 0, 1024);
+```
+O File.Open Ã© um enum que tem como opÃ§Ãµes (`CreateNew, Create, Open, OpenOrCreate, Truncate, Append`).
+
+Para visualizar o que estamos fazendo, vamos analisar o armezamento pelo laÃ§o ...
+
+```c#
+Metodo(buffer){
+    var utf8 = new UTF8Encoding();
+    var texto = utf8.GetString(buffer);
+    Console.Write(texto);
+    //Foreach(var meuByte in buffer){
+    //    Console.Write(meuByte)
+    //}
+}
+```
+Da forma como estÃ¡ podemos ler o arquivo, inclusive os espaÃ§os e tabulaÃ§Ãµes, que tem seu cÃ³digo na table Unicode. Para liberar os recursos do arquivo, inserimos o `fluxoDoArquivo.Close();`
+
+A tratativa das possÃ­veis exceÃ§Ãµes que podem ocorrer em uma abertura de arquivo sÃ£o grandes. Para fugir desse tipo de tratamento, vamos utilizar o `using`
+
+```c#
+   using(var fluxoDoArquivo = new FileStream(enderecoDoArquivo, FileMode.Open)){
+    //cÃ³digo
+   }
+```
+
 
